@@ -1,23 +1,24 @@
 fn main() {
-    let twenty = 20;
-    let twenty_one: i32 = 21;
-    let twenty_two = 22i32;
+    let a:i32 = 2;
+    let b:i32 = 3;
 
-    let addition = twenty + twenty_one + twenty_two;
-    println!("{} + {} + {} = {}", twenty, twenty_one, twenty_two, addition);
+    println!("(a & b) value is {}", a & b);
+    println!("(a | b) value is {}", a | b);
+    println!("(a ^ b) value is {}", a ^ b);
+    println!("(!b) value is {}", !b);
 
-    let one_million: i64 = 1_000_000;
-    println!("{}", one_million.pow(2));
+    println!("(a << b) value is {}", a << b);
+    println!("(a >> b) value is {}", a >> b);
 
-    let forty_twos = [
-        42.0,
-        42f32,
-        42.0_f32
-    ];
+    let mut a = a;
+    // 注意这些计算符除了!之外都可以加上=进行赋值 (因为!=要用来判断不等于)
+    a <<= b;
+    println!("(a << b) value is {}", a);
 
-    println!("{:.2}", forty_twos[0]);
 
 }
 
 // 2-2 Rust基本类型 Tips
-// 2-2-1 数字运算
+// 2-2-1 位运算
+// 转换为二进制，对相同位置的值的操作
+// 位运算计算符除了!之外都可以加上=进行赋值 (因为!=要用来判断不等于)
