@@ -1,12 +1,23 @@
 fn main() {
-    let x = (-42.0_f32).sqrt();
-    // assert_eq!(x, x);
-    if x.is_nan() {
-        println!("未定义的数学行为")
-    }
+    let twenty = 20;
+    let twenty_one: i32 = 21;
+    let twenty_two = 22i32;
+
+    let addition = twenty + twenty_one + twenty_two;
+    println!("{} + {} + {} = {}", twenty, twenty_one, twenty_two, addition);
+
+    let one_million: i64 = 1_000_000;
+    println!("{}", one_million.pow(2));
+
+    let forty_twos = [
+        42.0,
+        42f32,
+        42.0_f32
+    ];
+
+    println!("{:.2}", forty_twos[0]);
+
 }
 
 // 2-2 Rust基本类型 Tips
-// 2-2-1 数值类型
-// NaN类型：not a number
-// is_nan() 方法来判断一个数值是否是NaN
+// 2-2-1 数字运算
