@@ -1,18 +1,21 @@
 fn main() {
-    let a = 10;
-    let b: i32 = 20;
-    // mutable 可变的c
-    let mut c = 30i32;
-    let d = 30_i32;
-    let e = add(add(a, b), add(c, d));
+    let mut x = 5;
+    println!("The value of x is: {}", x);
+    x = 6;
+    println!("The value of x is: {}", x);
 
-    println!("( a + b ) + (c + d) = {}", e);
+    // let _a = 5;
+    // let b = 6;
+
+    let (a, mut b): (bool, bool) = (true, false);
+    println!("a = {:?}, b = {:?}", a, b);
+    b = true;
+    assert_eq!(a, b);
+    // println!("{:?}", assert_eq!(a, b));
+
 }
 
-fn add(i: i32, j: i32) -> i32 {
-    return i + j;
-}
 
-// 2-0 Rust基础入门 Tips
-// 字符串使用双引号 "" 而不是单引号 ''，Rust 中单引号是留给单个字符类型（char）使用的
-// Rust 使用 {} 来作为格式化输出占位符，其它语言可能使用的是 %s，%d，%p 等，由于 println! 会自动推导出具体的类型，因此无需手动指定
+// 2-1 Rust变量绑定与解绑 Tips
+// Rust变量默认是不可变的，设置mut关键字将其变为可变的
+// 使用下划线作为变量名的开头，使Rust忽略未使用变量的警告
