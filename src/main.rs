@@ -1,24 +1,18 @@
 fn main() {
-    let a:i32 = 2;
-    let b:i32 = 3;
+    for i in 1..5 {
+        println!("{}", i);
+    }
 
-    println!("(a & b) value is {}", a & b);
-    println!("(a | b) value is {}", a | b);
-    println!("(a ^ b) value is {}", a ^ b);
-    println!("(!b) value is {}", !b);
+    for j in 1..=5 {
+        println!("{}", j);
+    }
 
-    println!("(a << b) value is {}", a << b);
-    println!("(a >> b) value is {}", a >> b);
-
-    let mut a = a;
-    // 注意这些计算符除了!之外都可以加上=进行赋值 (因为!=要用来判断不等于)
-    a <<= b;
-    println!("(a << b) value is {}", a);
-
-
+    for i in 'a'..='z' {
+        println!("{}", i);
+    }
 }
 
 // 2-2 Rust基本类型 Tips
-// 2-2-1 位运算
-// 转换为二进制，对相同位置的值的操作
-// 位运算计算符除了!之外都可以加上=进行赋值 (因为!=要用来判断不等于)
+// 2-2-1 序列
+// 序列只允许用于数字或字符类型，因为只有它们可以连续，同时编译器可以检查该序列是否为空
+// a..=b加入等号后，生成连续的数值是包含b的，否则不包含
