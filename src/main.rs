@@ -1,18 +1,13 @@
+use num::complex::Complex;
+
 fn main() {
-    for i in 1..5 {
-        println!("{}", i);
-    }
+    let a = Complex { re: 2.1, im: -1.2 };
+    let b = Complex::new(11.2, 22.2);
+    let result = a + b;
 
-    for j in 1..=5 {
-        println!("{}", j);
-    }
-
-    for i in 'a'..='z' {
-        println!("{}", i);
-    }
+    println!("{} + {}i", result.re, result.im);
 }
 
 // 2-2 Rust基本类型 Tips
-// 2-2-1 序列
-// 序列只允许用于数字或字符类型，因为只有它们可以连续，同时编译器可以检查该序列是否为空
-// a..=b加入等号后，生成连续的数值是包含b的，否则不包含
+// 2-2-1 有理数和复数
+// Rust的标准库相比其他语言，准入门槛较高，因此有理数和复数并未包含在标准库中，好在社区已经开发出该质量的Rust数值库：num
