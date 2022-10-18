@@ -6,6 +6,21 @@ fn main() {
     let x = plus_five(5);
 
     println!("The value of x is: {}", x);
+    // 崩溃函数
+    panic!("I return nothing, too!")
+    // 循环函数
+    // never_return()
+}
+
+// 永不返回的循环函数
+use std::thread;
+use std::time;
+
+fn never_return() -> !{
+    loop {
+        println!("I return nothing");
+        thread::sleep(time::Duration::from_secs(1))
+    }
 }
 
 // 2-2 Rust基本类型 Tips
