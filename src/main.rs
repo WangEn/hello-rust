@@ -1,24 +1,23 @@
 fn main() {
-    println!("所有权");
-    // 字符串类型： &str 不可变 - 基本类型，存储在栈上
-    let x = "Hello";
-    // 动态字符串类型：String - 不是基本类型，存储在堆上，大小可变
-    let mut s = String::from("hello");
-    s.push_str(", world!");
-    println!("{}", s);
+    let s = String::from("hello");
 
+    takes_ownership(s);
 
-    // 所有权转移 旧变量不再有效，使用旧变量时Rust会报错禁止使用无效的引用
-    let s1 = String::from("hello");
-    // let s2 = s1;
-    // println!("{}, world!", s1);
-    // println!("{}, world!", s2);
+    // println!("{}", s);
+    // value borrowed here after move
 
-    // 克隆 深拷贝
-    let s3 = s1.clone();
-    println!("s1 = {}, s2 = {}", s1, s3);
+    let x = 5;
+    makes_copy(x);
+    println!("{}", x);
 
+}
 
+fn takes_ownership(some_string: String) {
+    println!("{}", some_string);
+}
+
+fn makes_copy(some_integer: i32) {
+    println!("{}", some_integer);
 }
 
 // 2-3 所有权与借用 Tips
