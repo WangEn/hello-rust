@@ -1,3 +1,4 @@
+
 fn main() {
     let s = String::from("hello");
 
@@ -20,6 +21,19 @@ fn main() {
     let s = "hello, world";
     // 等同于
     let s: &str = "hello world"; // 不可变引用
+
+    let mut string_remove = String::from("测试remove的方法");
+    println!("string_remove 占{}个字节", std::mem::size_of_val(string_remove.as_str()));
+
+    // string_remove.remove(0);
+    string_remove.remove(3);
+
+    println!("{}", string_remove);
+
+    // string_remove.remove(0);
+    println!("{}", string_remove);
+
+    dbg!(string_remove);
 
 }
 
