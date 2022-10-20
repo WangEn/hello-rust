@@ -1,48 +1,25 @@
 
 fn main() {
-    let s = String::from("hello");
+    // 遍历字符
+    for c in "中国人".chars() {
+        println!("{}", c);
+    }
 
-    let len = s.len();
+    // 遍历字节
+    for b in "中国人".bytes() {
+        println!("{}", b);
+    }
 
-    let slice = &s[0..len];
-    println!("{}", slice);
-
-    let ch = "中国人";
-    // 单个中文字符在utf-8中占用3个字节，所以切片的索引必须落在字符之间的边界位置，否则会崩溃报错
-    let a = &ch[0..3];
-    println!("{}", a); // 中
-
-    // 数组的切片
-    let a = [1,2,3,4,5];
-    let sli = &a[1..3];
-
-    assert_eq!(sli, &[2,3]);
-
-    let s = "hello, world";
-    // 等同于
-    let s: &str = "hello world"; // 不可变引用
-
-    let mut string_remove = String::from("测试remove的方法");
-    println!("string_remove 占{}个字节", std::mem::size_of_val(string_remove.as_str()));
-
-    // string_remove.remove(0);
-    string_remove.remove(3);
-
-    println!("{}", string_remove);
-
-    // string_remove.remove(0);
-    println!("{}", string_remove);
-
-    dbg!(string_remove);
+    // 获取子串
+    // 标准库是无法从“holla中国人नमस्ते”这个变长的字符串中取出一个子串的
+    // 需要在crates.io上搜索utf8来寻找实现功能的库，比如： utf8_slice
 
 }
 
 
 
 // 2-4 复合类型 Tips
-// 2-4-1 切片
+// 2-4-1 字符串与切片
 
-// ⭐️⭐️ 字符串的切片
-// ⭐️相当于对String类型的部分引用
-
-// ⭐️⭐️ 字符串字面量是切片 &str
+// ⭐️⭐️ 操作utf-8字符串
+// ⭐️ 遍历字符串的字符、字节、子串
