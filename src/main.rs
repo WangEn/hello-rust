@@ -1,28 +1,34 @@
 fn main() {
-    let mut s = String::from("hello");
+    let s = String::from("hello");
 
-    change(&mut s);
+    let len = s.len();
 
-    println!("{}", s);
+    let slice = &s[0..len];
+    println!("{}", slice);
+
+    let ch = "中国人";
+    // 单个中文字符在utf-8中占用3个字节，所以切片的索引必须落在字符之间的边界位置，否则会崩溃报错
+    let a = &ch[0..3];
+    println!("{}", a); // 中
+
+    // 数组的切片
+    let a = [1,2,3,4,5];
+    let sli = &a[1..3];
+
+    assert_eq!(sli, &[2,3]);
+
+    let s = "hello, world";
+    // 等同于
+    let s: &str = "hello world"; // 不可变引用
 
 }
 
-fn change(some_thing: &mut String) {
-    some_thing.push_str(", world!");
-}
 
 
+// 2-4 复合类型 Tips
+// 2-4-1 切片
 
-// 2-3 所有权与借用 Tips
-// 2-3-2 引用与借用
+// ⭐️⭐️ 字符串的切片
+// ⭐️相当于对String类型的部分引用
 
-// ⭐️⭐️ 引用与解引用
-// ⭐️引用 let y = &x;
-// ⭐️解引用 assert_eq!(5, *y);
-
-// ⭐️⭐️ 不可变引用
-// 引用指向的值默认是不可变的
-
-// ⭐️⭐️ 可变引用
-// 首先，声明 s 是可变类型，其次创建一个可变的引用 &mut s 和接受可变引用参数 some_string: &mut String 的函数
-// 可变引用同时只能存在一个
+// ⭐️⭐️ 字符串字面量是切片 &str
